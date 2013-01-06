@@ -1,0 +1,6 @@
+MIDlet-Name: Summer2012Robot
+MIDlet-Version: 1.0.0
+MIDlet-Vendor: FIRST
+MIDlet-1: Summer2012Robot, , org.team751.Summer2012Robot
+MicroEdition-Profile: IMP-1.0
+MicroEdition-Configuration: CLDC-1.1
