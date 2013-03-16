@@ -105,7 +105,7 @@ public class PolyMotorRobotDrive {
                 //If this controller is a CANJaguar, set it with CAN
                 if (controller instanceof CANJaguar) {
                     usingCan = true;
-                    ((CANJaguar) controller).setX(leftOutput, CANSyncGroups.DRIVETRAIN_LEFT);
+                    ((CANJaguar) controller).setX(leftOutput);
 
                 } else {
                     //Set it with PWM (or whatever non-CAN interface it uses)
@@ -124,7 +124,7 @@ public class PolyMotorRobotDrive {
                 if (controller instanceof CANJaguar) {
 
                     usingCan = true;
-                    ((CANJaguar) controller).setX(rightOutput, CANSyncGroups.DRIVETRAIN_RIGHT);
+                    ((CANJaguar) controller).setX(rightOutput);
                 } else {
                     controller.set(rightOutput);
                 }
@@ -133,8 +133,7 @@ public class PolyMotorRobotDrive {
 
         if (usingCan) {
             //Update the sync groups so that the Jaguars will update at the same time
-            CANJaguar.updateSyncGroup(CANSyncGroups.DRIVETRAIN_LEFT);
-            CANJaguar.updateSyncGroup(CANSyncGroups.DRIVETRAIN_RIGHT);
+            
         }
     }
 
