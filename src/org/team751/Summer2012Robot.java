@@ -23,10 +23,6 @@ public class Summer2012Robot extends IterativeRobot {
     
     private CANJaguar leftA, leftB, rightA, rightB;
     
-    public void disabledPeriodic() {
-        sendTemperatures();
-    }
-    
     /**
      * This function is run when the robot is first started up and should be
      * used for any initialization code.
@@ -49,8 +45,6 @@ public class Summer2012Robot extends IterativeRobot {
      * This function is called periodically during autonomous
      */
     public void autonomousPeriodic() {
-
-        sendTemperatures();
         
     }
 
@@ -60,25 +54,5 @@ public class Summer2012Robot extends IterativeRobot {
     public void teleopPeriodic() {
         
         drive.arcadeDrive(-driveStick.getY(), -driveStick.getX(), true);
-        
-        sendTemperatures();
-    }
-    
-    private void sendTemperatures() {
-        
-        try {
-            
-            double leftATemp = leftA.getTemperature();
-            double leftBTemp = leftB.getTemperature();
-            double rightATemp = rightA.getTemperature();
-            double rightBTemp = rightB.getTemperature();
-            
-            SmartDashboard.putDouble("Left A", leftATemp);
-            SmartDashboard.putDouble("Left B", leftBTemp);
-            SmartDashboard.putDouble("Right A", rightATemp);
-            SmartDashboard.putDouble("Right B", rightBTemp);
-        } catch (CANTimeoutException ex) {
-            ex.printStackTrace();
-        }
     }
 }
