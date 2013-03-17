@@ -3,7 +3,6 @@ package org.team751;
 import edu.wpi.first.wpilibj.CANJaguar;
 import edu.wpi.first.wpilibj.SpeedController;
 import edu.wpi.first.wpilibj.can.CANTimeoutException;
-import org.team751.resources.CANSyncGroups;
 
 /**
  * A RobotDrive that works with any number of motors.
@@ -77,6 +76,19 @@ public class PolyMotorRobotDrive {
         }
 
         setLeftRightMotorOutputs(leftPower, rightPower);
+    }
+    
+    /**
+     * Improved arcade drive, from team 254's 2012 code.
+     * @param moveValue The degree to which the robot should turn left or right.
+     * Full left is -1, full right is +1.
+     * @param rotateValue The degree to which the robot should be moved
+     * forward/back. Full forward is +1, full reverse is -1
+     *
+     * @throws CANTimeoutException if such an exception was encountered
+     */
+    public void cheesyArcadeDrive(double moveValue, double rotateValue) throws CANTimeoutException {
+        
     }
 
     /**
