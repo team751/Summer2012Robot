@@ -22,6 +22,8 @@ public class PolyMotorRobotDrive {
      * The motors on the right side of the robot
      */
     protected SpeedController[] rightMotors;
+    
+    private CheesyDrive cDrive = new CheesyDrive();
 
     /**
      * Constructor
@@ -88,6 +90,10 @@ public class PolyMotorRobotDrive {
      * @throws CANTimeoutException if such an exception was encountered
      */
     public void cheesyArcadeDrive(double moveValue, double rotateValue) throws CANTimeoutException {
+        
+        CheesyDrive.MotorOutputs outputs = cDrive.cheesyDrive(moveValue, rotateValue, false);
+        
+        setLeftRightMotorOutputs(outputs.left, outputs.right);
         
     }
 
